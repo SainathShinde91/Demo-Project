@@ -12,32 +12,31 @@
    error.innerText = "";
    msg.innerText="";
 
-   // 1️⃣ Check if any field is empty
+  
    if (Username === "" || Email === "" || Password === "" || ConfirmPassword === "") {
      error.innerText = "All fields are required";
      return false;
    }
 
-   // 2️⃣ Username length check
+   
    if (Username.length < 3) {
      error.innerText= "Username must be at least 3 characters";
      return false;
    }
 
-   // 3️⃣ Email format check
+   
    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
    if (!emailPattern.test(Email)) {
      error.innerText = "Invalid email format";
      return false;
    }
 
-  // 4️⃣ Password length check
   if (Password.length < 8) {
     error.innerText = "Password must be at least 8 characters";
     return false;
   }
 
-  // 5️⃣ Password match check
+  // Password match check
  if (Password !== ConfirmPassword) {
    error.innerHTML = "Passwords do not match";
     return false;
@@ -59,14 +58,14 @@
     })
     .then(res => res.json())
     .then(result => {
-        msg.innerText= "Registration Successful ✅";
+        msg.innerText= "Registration Successful ";
         console.log(result);
          showLogin();
         // Form reset
         document.getElementById("registerForm").reset();
     })
     .catch(err => {
-        error.innerText = "Registration Failed ❌";
+        error.innerText = "Registration Failed ";
         console.error(err);
     });
 
@@ -89,23 +88,20 @@ function loginUser() {
 
    if (!error) return false; 
 
-  // clear previous error
   error.innerText = "";
 
-  // 1️⃣ Empty check
   if (email === "" || password === "") {
     error.innerText = "All fields are required";
     return false;
   }
 
-  // 2️⃣ Email format check
   let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailPattern.test(email)) {
     error.innerText = "Please enter valid email";
     return false;
   }
 
-  // ✅ validation passed → backend call
+  // validation passed → backend call
   fetch("http://localhost:8080/api/users/login", {
     method: "POST",
     headers: {
