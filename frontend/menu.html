@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Welcome <span id="userName"></span></h2>
+    <h2>Menu Page</h2>
+
+    
+    <!-- add menu form   -->
+    <form id="menuForm">
+
+        <input type="date" id="DOB" required>
+        <input type="text" id="country" placeholder="Country" required>
+        <input type="text" id="state" placeholder="State" required>
+        <input type="text" id="city" placeholder="City" required>
+        <input type="text" id="pincode" placeholder="Pincode" required>
+
+        <button type="submit">Add Menu</button>
+    </form>
+    <button id="logoutBtn">Logout</button>
+
+
+    <!-- menu list -->
+    <ul id="menuList"></ul>
+</div>
+
+<script src="menu.js"></script>
+</body>
+</html>
